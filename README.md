@@ -8,4 +8,4 @@ Prerequisite.
     * Missing prerequisites for Math courses
     * Missing prerequisites for first year first semester courses
 
-![](pmt.pmt)
+![](pmt.png)
