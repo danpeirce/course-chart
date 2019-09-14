@@ -1,4 +1,5 @@
 digraph PMT {
+	edge [lblstyle="sloped"];
 	rankdir=LR;
     overlap=false;
 	node[shape=rect ];
@@ -31,11 +32,11 @@ digraph PMT {
     
     PHYS2010;
     PHYS2030;
-    ch2030 [label="or", shape=circle];
+    ch2030 [label="", shape=circle, height=0.2];
     PHYS2040;
     PHYS2420;
     PHYS2100;
-    ch2100 [ label="or", shape=circle];
+    ch2100 [ label="", shape=circle, height=0.2];
     PHYS2600;
     PHYS2610;
     PHYS3710;
@@ -45,7 +46,7 @@ digraph PMT {
     PHYS1120;
     PHYS1101;
     PHYS1102;
-    ch1220 [label="or", shape=circle];
+    ch1220 [label="", shape=circle, height=0.2];
     PHYS1600;
     APSC1299;
     ch1299 [label="or", shape=circle];
@@ -61,66 +62,66 @@ digraph PMT {
     oboth4010 [label="and", shape=circle];
     chm2100 [label="or", shape=circle];
     
-    yearone  -> y1t2 -> yeartwo -> y2t2 ->  yearthree -> y3t2  -> yearfour -> y4t2 ; //[dir=back]
-    PHYS2010 -> PHYS4010 -> PHYS4700  ; //[dir=back]
-    CHEM1210 -> CHEM2315 -> CHEM4610 ; //[dir=back]
-    ch4010 -> PHYS4010 ; //[dir=back]
-    both4010 -> ch4010 ; //[dir=back]
-    MATH2721 -> both4010 ; //[dir=back]
-    MATH2821 -> both4010 ; //[dir=back]
-    MATH3120 -> oboth4010 ; //[dir=back]
-    MATH3322 -> oboth4010 ; //[dir=back]
-    oboth4010 -> ch4010 ; //[dir=back]
-    ch4600 -> PHYS4600 ; //[dir=back]
-    PHYS2100 -> ch4600 ; //[dir=back]
-    PHYS2100 -> PHYS3900 ; //[dir=back]
-    PHYS2600 -> PHYS3610 ; //[dir=back]
-    PHYS2030 -> PHYS3610 ; //[dir=back]
-    PHYS3610 -> PHYS3620 ; //[dir=back]
-    chm2100 -> PHYS2100 ; //[dir=back]
-    chm2100 -> PHYS2040 ; //[dir=back]
-    MATH1220 -> chm2100 ; //[dir=back]
-    MATH1230 -> chm2100 ; //[dir=back]
-    ch2100 -> PHYS2100 ; //[dir=back]
-    ch2100 -> PHYS2040 ; //[dir=back]
-    PHYS1102 -> ch2100 ; //[dir=back]
-    PHYS1220 -> ch2100 ; //[dir=back]
-    PHYS2600 -> ch4600 ; //[dir=back]
-    PHYS1220 -> PHYS2600 ; //[dir=back]
-    PHYS1101 -> ch1220 ; //[dir=back]
-    PHYS1120 -> ch1220 ; //[dir=back]
-    ch1220 -> PHYS1102 ; //[dir=back]
-    ch1220 -> PHYS1220 ; //[dir=back]
-    PHYS1600 -> ch1299 ; //[dir=back]
-    APSC1299 -> ch1299 ; //[dir=back]
-    ch1299 -> PHYS2600 ; //[dir=back]
-    ch1299 -> PHYS2610 ; //[dir=back]
-    PHYS2100 -> PHYS2610 ; //[dir=back]
-    PHYS2610 -> ch4600 ; //[dir=back]
-    PHYS4199 -> PHYS4299 ; //[dir=back]
-    PHYS3900 -> PHYS4199 ; //[dir=back]
-    ch3900 -> PHYS4199 ; //[dir=back]
-    or1c3900 -> PHYS3900 ; //[dir=back]
-    or2c3900 -> PHYS3900 ; //[dir=back]
-    PHYS2010 -> PHYS3900 ; //[dir=back]
-    PHYS2030 -> PHYS3900 ; //[dir=back]
-    ch2030 -> PHYS2030 ; //[dir=back]
-    PHYS1120 -> ch2030 ; //[dir=back]
-    PHYS1101 -> ch2030 [label="with B"]; // dir=back]
+    yearone  -> y1t2 -> yeartwo -> y2t2 ->  yearthree -> y3t2  -> yearfour -> y4t2  ;
+    PHYS2010 -> PHYS4010 -> PHYS4700   ;
+    CHEM1210 -> CHEM2315 -> CHEM4610  ;
+    ch4010 -> PHYS4010  ;
+    both4010 -> ch4010  ;
+    MATH2721 -> both4010  ;
+    MATH2821 -> both4010  ;
+    MATH3120 -> oboth4010  ;
+    MATH3322 -> oboth4010  ;
+    oboth4010 -> ch4010  ;
+    ch4600 -> PHYS4600  ;
+    PHYS2100 -> ch4600  ;
+    PHYS2100 -> PHYS3900  ;
+    PHYS2600 -> PHYS3610  ;
+    PHYS2030 -> PHYS3610  ;
+    PHYS3610 -> PHYS3620  ;
+    chm2100 -> PHYS2100  ;
+    chm2100 -> PHYS2040  ;
+    MATH1220 -> chm2100  ;
+    MATH1230 -> chm2100  ;
+    ch2100 -> PHYS2100  ;
+    ch2100 -> PHYS2040  ;
+    PHYS1102 -> ch2100 ;
+    PHYS1220 -> ch2100 [headlabel="or  "]  ;
+    PHYS2600 -> ch4600  ;
+    PHYS1220 -> PHYS2600  ;
+    PHYS1101 -> ch1220  ;
+    PHYS1120 -> ch1220  [headlabel="or"];
+    ch1220 -> PHYS1102  ;
+    ch1220 -> PHYS1220  ;
+    PHYS1600 -> ch1299  ;
+    APSC1299 -> ch1299  ;
+    ch1299 -> PHYS2600  ;
+    ch1299 -> PHYS2610  ;
+    PHYS2100 -> PHYS2610  ;
+    PHYS2610 -> ch4600  ;
+    PHYS4199 -> PHYS4299  ;
+    PHYS3900 -> PHYS4199  ;
+    ch3900 -> PHYS4199  ;
+    or1c3900 -> PHYS3900  ;
+    or2c3900 -> PHYS3900  ;
+    PHYS2010 -> PHYS3900  ;
+    PHYS2030 -> PHYS3900  ;
+    ch2030 -> PHYS2030  ;
+    PHYS1120 -> ch2030 ;
+    PHYS1101 -> ch2030 [label="with B", headlabel="or   "];
     
-    PHYS2040 -> or2c3900 ; //[dir=back]
-    PHYS2420 -> or2c3900 ; //[dir=back]
-    ch2100 -> PHYS2420 ; //[dir=back]
-    chm2100 -> PHYS2420 ; //[dir=back]
-    ch2100 -> PHYS2010 ; //[dir=back]
-    chm2100 -> PHYS2010 ; //[dir=back]
-    // chm2100 -> PHYS1220  ; //[dir=back] actually a Co-requisite
-    PHYS2600 -> or1c3900 ; //[dir=back]
-    PHYS2610 -> or1c3900 ; //[dir=back]
-    PHYS2100 -> PHYS3710 ; //[dir=back]
-    PHYS2420 -> PHYS3700 ; //[dir=back]
-    PHYS2610 -> PHYS3700 ; //[dir=back]
-    PHYS2420 -> PHYS3710 ; //[dir=back]
+    PHYS2040 -> or2c3900  ;
+    PHYS2420 -> or2c3900  ;
+    ch2100 -> PHYS2420  ;
+    chm2100 -> PHYS2420  ;
+    ch2100 -> PHYS2010  ;
+    chm2100 -> PHYS2010  ;
+    // chm2100 -> PHYS1220   ; actually a Co-requisite
+    PHYS2600 -> or1c3900  ;
+    PHYS2610 -> or1c3900  ;
+    PHYS2100 -> PHYS3710  ;
+    PHYS2420 -> PHYS3700  ;
+    PHYS2610 -> PHYS3700  ;
+    PHYS2420 -> PHYS3710  ;
     { rank=same; yearfour, PHYS4010, PHYS4199 };
     { rank=same; yeartwo, PHYS2010, PHYS2420, MATH2721 };
     { rank=same; y2t2, PHYS2030, PHYS2040, MATH2821 };
