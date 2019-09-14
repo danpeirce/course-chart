@@ -4,6 +4,7 @@ digraph PMT {
     overlap=false;
 	node[shape=rect ];
 
+// semester markers
     yearone [label="Year One"];
     y1t2 [label="term 2"];
     yeartwo [label="Year Two"];
@@ -12,12 +13,14 @@ digraph PMT {
     y3t2 [label="term 6"];
     yearfour [label="Year Four"];
     y4t2 [label="term 8"];
+    
+// Course nodes and alternative "ch" nodes
     PHYS4700;
     PHYS4600;
     PHYS4299;
     PHYS4199;
     PHYS4010; 
-    ch4600 [label="two of", shape=oval ];
+    ch4600 [label="two of", shape=oval ]; // Must have two of three 
     
     CHEM4610;
     CHEM2315;
@@ -62,6 +65,7 @@ digraph PMT {
     oboth4010 [label="and", shape=circle];
     chm2100 [label="or", shape=circle];
     
+// Dependencies -- edges
     yearone  -> y1t2 -> yeartwo -> y2t2 ->  yearthree -> y3t2  -> yearfour -> y4t2  ;
     PHYS2010 -> PHYS4010 -> PHYS4700   ;
     CHEM1210 -> CHEM2315 -> CHEM4610  ;
