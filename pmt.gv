@@ -28,18 +28,18 @@ digraph PMT {
     
     PHYS3900;
     ch3900 [label="+6 credits PHYS +3000 level", shape=none ];
-    or1c3900 [label="or", shape=circle ];
-    or2c3900 [label="or", shape=circle ];
+    or1c3900 [label="", shape=circle, height=0.2]; //or
+    or2c3900 [label="", shape=circle, height=0.2]; //or
     PHYS3610;
     PHYS3620;
     
     PHYS2010;
     PHYS2030;
-    ch2030 [label="", shape=circle, height=0.2];
+    ch2030 [label="", shape=circle, height=0.2]; //or
     PHYS2040;
     PHYS2420;
     PHYS2100;
-    ch2100 [ label="", shape=circle, height=0.2];
+    ch2100 [ label="", shape=circle, height=0.2]; //or
     PHYS2600;
     PHYS2610;
     PHYS3710;
@@ -49,10 +49,10 @@ digraph PMT {
     PHYS1120;
     PHYS1101;
     PHYS1102;
-    ch1220 [label="", shape=circle, height=0.2];
+    ch1220 [label="", shape=circle, height=0.2]; //or
     PHYS1600;
     APSC1299;
-    ch1299 [label="or", shape=circle];
+    ch1299 [label="", shape=circle, height=0.2]; //or
     
     MATH1220;
     MATH1230;
@@ -60,21 +60,21 @@ digraph PMT {
     MATH2821;
     MATH3120;
     MATH3322;
-    ch4010 [label="or", shape=circle];
-    both4010 [label="and", shape=circle];
-    oboth4010 [label="and", shape=circle];
-    chm2100 [label="or", shape=circle];
+    ch4010 [label="", shape=circle, height=0.2]; //or
+    both4010 [label="", shape=circle, height=0.2]; //and
+    oboth4010 [label="", shape=circle, height=0.2]; //and
+    chm2100 [label="", shape=circle, height=0.2]; //or
     
 // Dependencies -- edges
     yearone  -> y1t2 -> yeartwo -> y2t2 ->  yearthree -> y3t2  -> yearfour -> y4t2  ;
     PHYS2010 -> PHYS4010 -> PHYS4700   ;
     CHEM1210 -> CHEM2315 -> CHEM4610  ;
     ch4010 -> PHYS4010  ;
-    both4010 -> ch4010  ;
-    MATH2721 -> both4010  ;
+    both4010 -> ch4010  [headlabel="or    "];
+    MATH2721 -> both4010  [headlabel="and     "];
     MATH2821 -> both4010  ;
     MATH3120 -> oboth4010  ;
-    MATH3322 -> oboth4010  ;
+    MATH3322 -> oboth4010  [headlabel="and  "];
     oboth4010 -> ch4010  ;
     ch4600 -> PHYS4600  ;
     PHYS2100 -> ch4600  ;
@@ -84,8 +84,8 @@ digraph PMT {
     PHYS3610 -> PHYS3620  ;
     chm2100 -> PHYS2100  ;
     chm2100 -> PHYS2040  ;
-    MATH1220 -> chm2100  ;
-    MATH1230 -> chm2100  ;
+    MATH1220 -> chm2100  [headlabel="or    "];
+    MATH1230 -> chm2100   ;
     ch2100 -> PHYS2100  ;
     ch2100 -> PHYS2040  ;
     PHYS1102 -> ch2100 ;
@@ -93,11 +93,11 @@ digraph PMT {
     PHYS2600 -> ch4600  ;
     PHYS1220 -> PHYS2600  ;
     PHYS1101 -> ch1220  ;
-    PHYS1120 -> ch1220  [headlabel="or"];
+    PHYS1120 -> ch1220  [headlabel="or  "];
     ch1220 -> PHYS1102  ;
     ch1220 -> PHYS1220  ;
     PHYS1600 -> ch1299  ;
-    APSC1299 -> ch1299  ;
+    APSC1299 -> ch1299  [headlabel="or   "] ;
     ch1299 -> PHYS2600  ;
     ch1299 -> PHYS2610  ;
     PHYS2100 -> PHYS2610  ;
@@ -114,14 +114,14 @@ digraph PMT {
     PHYS1101 -> ch2030 [label="with B", headlabel="or   "];
     
     PHYS2040 -> or2c3900  ;
-    PHYS2420 -> or2c3900  ;
+    PHYS2420 -> or2c3900  [headlabel="or    "] ;
     ch2100 -> PHYS2420  ;
     chm2100 -> PHYS2420  ;
     ch2100 -> PHYS2010  ;
     chm2100 -> PHYS2010  ;
     // chm2100 -> PHYS1220   ; actually a Co-requisite
     PHYS2600 -> or1c3900  ;
-    PHYS2610 -> or1c3900  ;
+    PHYS2610 -> or1c3900  [headlabel="or    "] ; 
     PHYS2100 -> PHYS3710  ;
     PHYS2420 -> PHYS3700  ;
     PHYS2610 -> PHYS3700  ;
