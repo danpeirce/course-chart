@@ -15,7 +15,17 @@ digraph PMT {
     y4t2 [label="term 8"];
     
 // Course nodes and alternative "ch" nodes
+    PHYS3950;
+    phys1appr [label="Committee Approval", shape=oval];
+    phys1c9 [label="9 PHYS credits at the 3000 level", shape= none];
+    PHYS3951;
+    phys2appr [label="Committee Approval", shape=oval];
+    phys2c9 [label="9 PHYS credits at the 3000 level", shape= none];
+    PHYS4900;
+    p4900 [label=<45 credits from courses at the undergraduate<br /> level, including 9 credits from courses<br /> in PHYS at the 2000 level or higher>, shape=none];
     PHYS4700;
+    breadthE [label="3 Bredth Electives"];
+    businessE [label="1 Business Elective"];
     PHYS4600;
     PHYS4299;
     PHYS4199;
@@ -40,6 +50,7 @@ digraph PMT {
     PHYS2420;
     PHYS2100;
     ch2100 [ label="", shape=circle, height=0.2]; //or
+    breadthE2nd [label="1 Breadth Elective"];
     PHYS2600;
     PHYS2610;
     PHYS3710;
@@ -65,9 +76,16 @@ digraph PMT {
     oboth4010 [label="", shape=circle, height=0.2]; //and
     chm2100 [label="", shape=circle, height=0.2]; //or
     
+
+    
 // Dependencies -- edges
     yearone  -> y1t2 -> yeartwo -> y2t2 ->  yearthree -> y3t2  -> yearfour -> y4t2  ;
     PHYS2010 -> PHYS4010 -> PHYS4700   ;
+    p4900 -> PHYS4900;
+    phys1appr -> PHYS3950;
+    phys1c9 -> PHYS3950;
+    phys2appr -> PHYS3951;
+    phys2c9 -> PHYS3951;
     CHEM1210 -> CHEM2315 -> CHEM4610  ;
     ch4010 -> PHYS4010  ;
     both4010 -> ch4010  [headlabel="or    "];
@@ -126,12 +144,12 @@ digraph PMT {
     PHYS2420 -> PHYS3700  ;
     PHYS2610 -> PHYS3700  ;
     PHYS2420 -> PHYS3710  ;
-    { rank=same; yearfour, PHYS4010, PHYS4199 };
-    { rank=same; yeartwo, PHYS2010, PHYS2420, MATH2721 };
-    { rank=same; y2t2, PHYS2030, PHYS2040, MATH2821 };
-    { rank=same; y4t2, PHYS4600, PHYS4299, CHEM4610 };
-    { rank=same; yearthree, PHYS3900, PHYS3610,  CHEM2315 }; 
-    { rank=same; y3t2, PHYS3710, PHYS3700, PHYS3620, MATH3120, MATH3322 };
+    { rank=same; yearfour, PHYS4010, PHYS4199, breadthE, businessE };
+    { rank=same; yeartwo, PHYS2010, PHYS2420, MATH2721, breadthE2nd };
+    { rank=same; y2t2, PHYS2030, PHYS2040, MATH2821, p4900 };
+    { rank=same; y4t2, PHYS4600, PHYS4299, CHEM4610, PHYS3951 };
+    { rank=same; yearthree, PHYS3900, PHYS3610,  CHEM2315, PHYS4900 }; 
+    { rank=same; y3t2, PHYS3710, PHYS3700, PHYS3620, MATH3120, MATH3322, PHYS3950, ch3900 };
     { rank=same; yeartwo, PHYS2100};
     { rank=same; y2t2, PHYS2600};
     { rank=same; y2t2, PHYS2610};
