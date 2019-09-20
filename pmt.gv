@@ -15,12 +15,12 @@ digraph PMT {
     y4t2 [label="term 8"];
     
 // Course nodes and alternative "ch" nodes
-    PHYS3950;
+    PHYS3950 [label=<PHYS3950<br />PHYS3951>];
     phys1appr [label="Committee Approval", shape=oval];
     phys1c9 [label="9 PHYS credits at the 3000 level", shape= none];
-    PHYS3951;
-    phys2appr [label="Committee Approval", shape=oval];
-    phys2c9 [label="9 PHYS credits at the 3000 level", shape= none];
+    //PHYS3951;
+    //phys2appr [label="Committee Approval", shape=oval];
+    //phys2c9 [label="9 PHYS credits at the 3000 level", shape= none];
     PHYS4900;
     p4900 [label=<45 credits from courses at the undergraduate<br /> level, including 9 credits from courses<br /> in PHYS at the 2000 level or higher>, shape=none];
     PHYS4700;
@@ -58,11 +58,11 @@ digraph PMT {
     
     PHYS1220;
     PHYS1120;
-    PHYS1101;
-    PHYS1102;
+    PHYS1101 [label=<PHYS1101<br />(alternate)>, shape=note];
+    PHYS1102 [label=<PHYS1102<br />(alternate)>, shape=note];
     ch1220 [label="", shape=circle, height=0.2]; //or
     PHYS1600;
-    APSC1299;
+    APSC1299 [label=<APSC1299<br />(alternate)>, shape=note];
     ch1299 [label="", shape=circle, height=0.2]; //or
     
     MATH1220;
@@ -76,7 +76,10 @@ digraph PMT {
     oboth4010 [label="", shape=circle, height=0.2]; //and
     chm2100 [label="", shape=circle, height=0.2]; //or
     
-
+    BIOL1110;
+    CHEM1110;
+    //CHEM1210; 
+    ENGL1100;
     
 // Dependencies -- edges
     yearone  -> y1t2 -> yeartwo -> y2t2 ->  yearthree -> y3t2  -> yearfour -> y4t2  ;
@@ -84,8 +87,8 @@ digraph PMT {
     p4900 -> PHYS4900;
     phys1appr -> PHYS3950;
     phys1c9 -> PHYS3950;
-    phys2appr -> PHYS3951;
-    phys2c9 -> PHYS3951;
+    //phys2appr -> PHYS3951;
+    //phys2c9 -> PHYS3951;
     CHEM1210 -> CHEM2315 -> CHEM4610  ;
     ch4010 -> PHYS4010  ;
     both4010 -> ch4010  [headlabel="or    "];
@@ -144,18 +147,19 @@ digraph PMT {
     PHYS2420 -> PHYS3700  ;
     PHYS2610 -> PHYS3700  ;
     PHYS2420 -> PHYS3710  ;
+    CHEM1110 -> CHEM1210  ;
     { rank=same; yearfour, PHYS4010, PHYS4199, breadthE, businessE };
     { rank=same; yeartwo, PHYS2010, PHYS2420, MATH2721, breadthE2nd };
     { rank=same; y2t2, PHYS2030, PHYS2040, MATH2821, p4900 };
-    { rank=same; y4t2, PHYS4600, PHYS4299, CHEM4610, PHYS3951 };
+    { rank=same; y4t2, PHYS4600, PHYS4299, CHEM4610 };
     { rank=same; yearthree, PHYS3900, PHYS3610,  CHEM2315, PHYS4900 }; 
     { rank=same; y3t2, PHYS3710, PHYS3700, PHYS3620, MATH3120, MATH3322, PHYS3950, ch3900 };
     { rank=same; yeartwo, PHYS2100};
     { rank=same; y2t2, PHYS2600};
     { rank=same; y2t2, PHYS2610};
-    { rank=same; yearone, PHYS1600, PHYS1101, PHYS1120, MATH1220, MATH1230};
-    { rank=same; yearone, CHEM1210};
-    { rank=same; y1t2, PHYS1220, APSC1299, PHYS1102 };
+    { rank=same; yearone, PHYS1600, PHYS1101, PHYS1120};
+    { rank=same; yearone, CHEM1110, ENGL1100};
+    { rank=same; y1t2, BIOL1110, PHYS1220, APSC1299, PHYS1102, CHEM1210, MATH1220, MATH1230 };
     
 // dot -Tpng pmt.gv -o pmt.png
 }
